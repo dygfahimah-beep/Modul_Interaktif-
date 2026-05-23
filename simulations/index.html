@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/simulation.css">
+  <title>🎓 Modul Interaktif: Undang-undang Nombor Besar (LLN)</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3.1.0"></script>
+  <style>
+
+    body.simulation-page {
+      font-family: "Poppins", sans-serif;
+      text-align: center;
+      background: linear-gradient(135deg, #f0f4f8, #d9e6f2); /* soft pastel gradient */
+      margin: 0;
+      padding: 25px;
+      margin-top: 25px;
+    }
+    h1 {
+      color: #1a237e;
+      margin-bottom: 10px;
+    }
+    p {
+      color: #333;
+      max-width: 700px;
+      margin: 10px auto;
+      font-size: 1.05em;
+      line-height: 1.6em;
+    }
+    .container {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      margin: auto ;
+      width: 90%;
+      max-width: 850px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    label {
+      display: block;
+      margin-bottom: 2px;
+      font-weight: 500;
+
+    }
+    input[type="range"] {
+      width: 100%;
+      max-width: 350px;
+      margin-top: 10px;
+      margin-bottom: 30px;
+    }
+
+    canvas {
+      display: block;
+      width: 100% !important;
+      max-width: 900px;
+      height: auto !important;
+      margin: 0;
+    }
+
+    #explanationBox {
+      background: #f0f4ff;
+      border-radius: 10px;
+      padding: 15px 20px;
+      margin-top: 15px;
+      text-align: left;
+      font-size: 1em;
+      line-height: 1.6em;
+      color: #1a237e;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+      width: 90%;
+      max-width: 750px;
+      transition: all 0.3s ease;
+    }
+
+    .quiz-section {
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      padding: 20px;
+      margin: 25px auto;
+      width: 90%;
+      max-width: 850px;
+    }
+    .question {
+      text-align: left;
+      margin: 15px 0;
+      background: #eef3ff;
+      padding: 15px;
+      border-radius: 10px;
+    }
+    .question p {
+      color: #1a237e;
+      font-weight: 500;
+      margin-bottom: 20px;
+    }
+    .btn {
+      width: 99%;
+      background-color: #1a237e;
+      color: white;
+      border: none;
+      font-size: 15px;
+      border-radius: 8px;
+      padding: 8px 15px;
+      margin: 0;
+      margin-bottom: 13px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #3949ab;
+    }
+    .feedback {
+      font-weight: bold;
+      margin-top: 5px;
+    }
+
+
+  </style>
+</head>
+
+<body class="simulation-page">
+  <h1>🎓 Law of Large Numbers (LLN) Simulator</h1>
+  <p>
+    Adjust the <b>sample size (n)</b> to observe how the shape of the sampling distribution of the sample mean changes.
+    As <i>n</i> increases, the distribution becomes <b>narrower (less variability)</b>, <b>more symmetric (approaching normal)</b>,
+    and is centered at <b>μ = 50</b>, demonstrating <i> the Law of Large Numbers</i>.
+  </p>
+
+  <div class="container">
+    <label>Sample size (n): <span id="sampleLabel">5</span></label><br>
+    <input type="range" id="sampleSize" min="5" max="200" value="5" step="5">
+    <canvas id="chartCanvas"></canvas>
+
+    <div id="explanationBox">
+      <b>Explanation:</b> For small sample sizes (n < 30), the sampling distribution may still be skewed and shows greater variability around μ = 50.
+      This indicates that the sample mean is more influenced by population variability (variance) and is less stable. 
+    </div>
+  </div>
+
+  <!-- 🌟 Bahagian Soalan Refleksi -->
+  <div class="quiz-section">
+    <h2>🧠 Reflection on Understanding</h2>
+    <p>Answer the following questions based on your observations of the LLN graph above.</p>
+
+    <div class="question">
+       1️⃣ As the sample size increases, what happens to the shape of the distribution?</p>
+      <button class="btn" onclick="checkAnswer(1, 'a')">a) The distribution becomes narrower and approaches the population mean.</button></br>
+      <button class="btn" onclick="checkAnswer(1, 'b')">b) The distribution becomes spread out and less stable.</button></br>
+      <button class="btn" onclick="checkAnswer(1, 'c')">c) There is no systematic change in shape of the sampling distribution.</button></br>
+      <div id="feedback1" class="feedback"></div>
+    </div>
+
+    <div class="question">
+       2️⃣ Based on the Law of Large Numbers (LLN), as n increases, ...</p>
+      <button class="btn" onclick="checkAnswer(2, 'a')">a) the sample mean becomes more variable and deviates further from the population mean.</button></br>
+      <button class="btn" onclick="checkAnswer(2, 'b')">b) the sample mean becomes unstable.</button></br>
+      <button class="btn" onclick="checkAnswer(2, 'c')">c) the sample mean approaches the population mean.</button></br>
+      <div id="feedback2" class="feedback"></div>
+    </div>
+
+    <div class="question">
+      3️⃣ For small sample sizes (n < 30), the sampling distribution typically shows ...</p>
+      <button class="btn" onclick="checkAnswer(3, 'a')">a) The sample mean is very close to the population mean with minimal variation.</button></br>
+      <button class="btn" onclick="checkAnswer(3, 'b')">b) The sample mean is more variable and the distribution may be skewed.</button></br>
+      <button class="btn" onclick="checkAnswer(3, 'c')">c) The sampling distribution becomes perfectly normal.</button></br>
+      <div id="feedback3" class="feedback"></div>
+    </div>
+
+    <div class="question">
+      4️⃣ For large sample size (n > 100), what happens to the variability of the sampling distribution?</p>
+      <button class="btn" onclick="checkAnswer(4, 'a')">a) Variability increases and the distribution becomes wider.</button></br>
+      <button class="btn" onclick="checkAnswer(4, 'b')">b) Variability decreases and the distribution becomes narrower.</button></br>
+      <button class="btn" onclick="checkAnswer(4, 'c')">c) Variability remains unchanged.</button></br>
+      <div id="feedback4" class="feedback"></div>
+    </div>
+
+    <div class="question">
+      5️⃣ What is the main idea of the <i>Law of Large Numbers (LLN)?</i>?</p>
+      <button class="btn" onclick="checkAnswer(5, 'a')">a) As the sample size increases, the population mean changes depending on the sample mean.</button></br>
+      <button class="btn" onclick="checkAnswer(5, 'b')">b) As the sample size decreases, the sample mean becomes closer to the population mean.</button></br>
+      <button class="btn" onclick="checkAnswer(5, 'c')">c) As the sample size increases, the sample mean becomes closer to the population mean.</button></br>
+      <div id="feedback5" class="feedback"></div>
+    </div>
+
+    <!-- 🧮 Butang Kira Markah Akhir -->
+    <div style="text-align:center; margin-top:25px;">
+      <p id="finalScore" style="font-weight:bold; color:#1a237e; margin-top:10px;"></p>
+    <button class="btn" onclick="resetQuiz()" style="margin-top:20px;  width: auto; padding:8px 25px;">
+      Reattempt the question
+    </button>
+    </div>
+  </div>
+
+  <script>
+    const ctx = document.getElementById("chartCanvas").getContext("2d");
+
+function generateSamplingDistribution(n, samples = 2000) {
+  const means = [];
+  const mu = 50;
+  const sigma = 15;
+
+  for (let i = 0; i < samples; i++) {
+    let sum = 0;
+    for (let j = 0; j < n; j++) {
+      const u1 = Math.random();
+      const u2 = Math.random();
+      const z = Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+      sum += mu + sigma * z;
+    }
+    means.push(sum / n);
+  }
+
+  const step = 1;
+  const data = [];
+
+  // ✅ PAKSA RANGE 0–100
+  for (let x = 0; x <= 100; x += step) {
+    const count = means.filter(m => m >= x && m < x + step).length;
+    data.push({ x, y: count / samples });
+  }
+
+  return data;
+}
+
+    const chart = new Chart(ctx, {
+      type: "line",
+      data: {
+      datasets: [
+    // HISTOGRAM (BASE)
+    {
+      type: "bar",
+      label: "Histogram of Sample Mean",
+      data: [],
+      parsing: false,
+      backgroundColor: "rgba(63, 81, 181, 0.5)",
+      borderWidth: 0,
+      barThickness: 12,
+      order: 1
+    },
+
+    // LINE (ATAS HISTOGRAM)
+    {
+      type: "line",
+      label: "Sampling Distribution of Sample Mean",
+      data: [],
+      parsing: false,
+      borderColor: "#3f51b5",
+      borderWidth: 2,
+      tension: 0.3,
+      pointRadius: 0,
+      fill: false,
+      order: 2
+    }
+  ]
+},
+      options: {
+        responsive: true,
+        scales: {
+          x: {
+            type: "linear",
+            title: { display: true, text: "Sample Mean (x̄)" },
+            min: 30,
+            max: 70,
+            ticks: { stepSize: 10 },
+            grid: { color: "#e0e0e0" },
+          },
+          y: {
+            title: { display: true, text: "Probability (f(x̄))" },
+            min: 0,
+            max: 0.35,
+            ticks: { stepSize: 0.05 },
+            grid: { color: "#f0f0f0" },
+          },
+        },
+        plugins: {
+          legend: { display: false },
+          title: {
+            display: true,
+            text: "Sample size (n) = 5",
+            font: { size: 16 },
+          },
+          annotation: {
+            annotations: {
+              muLine: {
+                type: 'line',
+                xMin: 50,
+                xMax: 50,
+                yMin: 0,
+                yMax: 0.35,
+                borderColor: 'red',
+                borderWidth: 2,
+                borderDash: [6, 4],
+                label: {
+                  display: true,
+                  content: 'μ = 50',
+                  color: 'red',
+                  position: 'start',
+                  yAdjust: 35,
+                  backgroundColor: 'rgba(255,255,255,0.9)',
+                  font: { size: 14, weight: 'bold' }
+                }
+              }
+            }
+          }
+        },
+        animation: { duration: 800, easing: "easeOutQuart" },
+      },
+      plugins: [Chart.registry.getPlugin('annotation')],
+    });
+
+    const explanationBox = document.getElementById("explanationBox");
+
+    function updateExplanation(n) {
+      if (n < 30) {
+        explanationBox.innerHTML = "</b> For small sample sizes (<b>n < 30</b>), the distribution may still be skewed and differs from the population mean (μ = 50). The sample mean is strongly influenced by the variability of the original data.";
+      } else if (n >= 30 && n <= 100) {
+        explanationBox.innerHTML = "</b> As the sample size becomes moderate (<b>30 ≤ n ≤ 100</b>), the sampling distribution of the sample mean becomes narrower and more symmetric around μ = 50. This indicates that the sample mean begins to approach the population mean.";
+      } else {
+        explanationBox.innerHTML = "</b> For large sample sizes (<b>n > 100</b>), the sampling distribution is approximately normal, very narrow, and centered at μ = 50. The variability becomes small, indicating that the sample mean is very close to the population mean. This illustrates the main concept of the <i>Law of Large Numbers</i>.";
+      }
+    }
+
+    function updateChart(n) {
+      const data = generateSamplingDistribution(n);
+
+      chart.data.datasets[0].data = data;
+      chart.data.datasets[1].data = data;
+
+  // ✅ UPDATE TITLE
+  chart.options.plugins.title.text = `Sample size (n) = ${n}`;
+
+  chart.update();
+
+  // ✅ UPDATE PENJELASAN
+  updateExplanation(n);
+}
+
+
+
+    document.getElementById("sampleSize").addEventListener("input", e => {
+      const n = parseInt(e.target.value);
+      document.getElementById("sampleLabel").textContent = n;
+      updateChart(n);
+    });
+
+    const answered = {};
+  
+    function checkAllAnswered() {
+  const totalQuestions = 5;
+  const answeredCount = Object.keys(answered).length;
+
+  if (answeredCount === totalQuestions) {
+    calculateScore(); // auto kira markah
+  }
+}
+
+
+  function checkAnswer(q, ans) {
+    // Kalau soalan sudah dijawab → stop
+    if (answered[q]) return;
+    answered[q] = true;
+
+    const correct = { 1: 'a', 2: 'c', 3: 'b', 4: 'b', 5: 'c' };
+    const feedback = document.getElementById("feedback" + q);
+
+    // 🔒 Disable semua button dalam soalan ini
+    const questionDiv = feedback.closest(".question");
+    const buttons = questionDiv.querySelectorAll("button");
+    buttons.forEach(btn => btn.disabled = true);
+
+    if (ans === correct[q]) {
+      feedback.textContent = "✅ Correct! Great job.";
+      feedback.style.color = "#008800";
+    } else {
+      feedback.textContent = "❌ Not quite right. Take another look at the shape of the distribution in the graph.";
+      feedback.style.color = "#bb0000";
+   }
+
+   checkAllAnswered();
+
+  }
+
+    // 🧮 Kira Markah Akhir
+    function calculateScore() {
+      const correct = { 1: 'a', 2: 'c', 3: 'b', 4: 'b', 5: 'c' };
+      let score = 0;
+      for (let q in correct) {
+        const feedback = document.getElementById("feedback" + q);
+        if (feedback.textContent.includes("✅")) score++;
+      }
+      document.getElementById("finalScore").textContent = `Your final score: ${score}/5 ✅`;
+    }
+    
+    function resetQuiz() {
+  // kosongkan rekod jawapan
+  for (let key in answered) {
+    delete answered[key];
+  }
+
+  // reset feedback & aktifkan semula button
+  for (let i = 1; i <= 5; i++) {
+    const feedback = document.getElementById("feedback" + i);
+    feedback.textContent = "";
+
+    const questionDiv = feedback.closest(".question");
+    const buttons = questionDiv.querySelectorAll("button");
+    buttons.forEach(btn => btn.disabled = false);
+  }
+
+  // padam markah akhir
+  document.getElementById("finalScore").textContent = "";
+}
+
+    updateChart(5);
+  </script>
+
+</body>
+</html>

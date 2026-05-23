@@ -1,0 +1,1013 @@
+// LOGIN FUNCTION
+function login() {
+  const name = document.getElementById("name").value;
+  const matric = document.getElementById("matric").value;
+
+  if (name === "" || matric === "") {
+    alert("Sila isi nama dan no. matrik");
+    return;
+  }
+
+  localStorage.setItem("studentName", name);
+  localStorage.setItem("studentMatric", matric);
+
+  window.location.href = "dashboard.html";
+}
+
+function setActiveMenu(element) {
+  document.querySelectorAll(".menu-item").forEach(item => {
+    item.classList.remove("active");
+  });
+
+  element.classList.add("active");
+}
+
+// LOAD DASHBOARD CONTENT (WEBSITE HIDUP)
+function loadContent(section) {
+
+  const content = document.getElementById("content");
+  const homeBtn = document.querySelector(".home-btn");
+
+  if(section === "dashboard") {
+    homeBtn.style.display = "none";
+  } else {
+    homeBtn.style.display = "flex";
+  }
+
+  // 🔥 reset dulu setiap kali tukar menu
+  content.classList.remove("simulation-mode");
+
+  if (section === "dashboard") {
+  content.innerHTML = `
+
+  <div class="dashboard-home">
+
+    <div class="hero-section">
+
+      <div class="hero-left">
+
+        <h1>Welcome to Dashboard</h1>
+
+        <h2>Hello, Student! 👋</h2>
+
+        <p>
+          Explore interactive materials and activities designed to help
+          you master the concepts of Sampling Distribution and the
+          Law of Large Numbers (LLN).
+        </p>
+
+      </div>
+
+      <div class="hero-right">
+        <img src="images/dashboard.png">
+      </div>
+
+    </div>
+
+    <div class="dashboard-grid">
+
+      <div class="dashboard-card" onclick="loadContent('notes')">
+        <div class="icon-box blue">
+        <i class="fa-solid fa-book-open"></i>
+        </div>
+
+        <div class="card-text">
+          <h3>Notes</h3>
+          <p>Access structured notes and key concepts with examples.</p>
+        </div>
+
+        <div class="arrow blue">→</div>
+      </div>
+
+      <div class="dashboard-card" onclick="loadContent('videos')">
+        <div class="icon-box purple">
+        <i class="fa-solid fa-circle-play"></i>
+        </div>
+
+        <div class="card-text">
+          <h3>Videos</h3>
+          <p>Watch video lessons and explanations to build your understanding.</p>
+        </div>
+
+        <div class="arrow purple">→</div>
+      </div>
+
+      <div class="dashboard-card" onclick="loadContent('simulations')">
+        <div class="icon-box green">
+          <i class="fa-solid fa-sliders"></i>
+        </div>
+
+        <div class="card-text">
+          <h3>Simulations</h3>
+          <p>Run interactive simulations and explore concepts.</p>
+        </div>
+
+        <div class="arrow green">→</div>
+      </div>
+
+        <div class="dashboard-card" onclick="loadContent('worksheets')">
+        <div class="icon-box pink">
+          <i class="fa-solid fa-file-lines"></i>
+        </div>
+
+        <div class="card-text">
+          <h3>Worksheet</h3>
+          <p>Complete exercises and activities to strengthen key statistical concepts.</p>
+        </div>
+
+        <div class="arrow pink">→</div>
+      </div>
+
+      <div class="dashboard-card" onclick="loadContent('Quizzes')">
+        <div class="icon-box yellow">
+          <i class="fa-solid fa-puzzle-piece"></i>
+        </div>
+
+        <div class="card-text">
+          <h3>Quizzes</h3>
+          <p>Test your knowledge through quizzes.</p>
+        </div>
+
+        <div class="arrow yellow">→</div>
+      </div>
+
+    </div>
+
+  </div>
+  `;
+}
+
+if (section === "notes") {
+  content.innerHTML = `
+    <div class="notes-top-section">
+      <div class="notes-text">
+        <h2>Notes</h2>
+        <p class="notes-section-description">
+          Explore the slides below to review key concepts on sampling distribution and the Law of Large Numbers (LLN). Click on each title to view the slides.
+        </p>
+      </div>
+      <img src="images/study.png" class="notes-hero-image">
+    </div>
+
+      <div class="accordion">
+
+      <!-- Notes 1 -->
+      <div class="notes-card">
+
+      <div class="notes-card-header" onclick="toggleCard(this)">
+
+        <div class="notes-header-left">
+
+          <div class="topic-icon blue">
+            <i class="fa-solid fa-chart-pie"></i>
+          </div>
+
+          <div class="topic-info">
+            <h3>Topic 1: Introduction to Sampling Distribution</h3>
+            <p>📑10 Slides</p>
+          </div>
+        </div>
+
+        <div class="notes-header-right">
+          <div class="slides-badge open status-text">
+            Open
+          </div>
+          <div class="notes-arrow">
+            ❯
+          </div>
+        </div>
+      </div>
+
+      <div class="notes-content">
+        <iframe src="notes/notes1.pdf" style="width:100%; height:500px; border:none;"></iframe>
+      </div>
+      </div>
+
+      <!-- Notes 2 -->
+      <div class="notes-card">
+
+      <div class="notes-card-header" onclick="toggleCard(this)">
+
+        <div class="notes-header-left">
+
+          <div class="topic-icon purple">
+            <i class="fa-solid fa-chart-column"></i>
+          </div>
+
+          <div class="topic-info">
+            <h3>Topic 2: Understanding Sampling Distribution</h3>
+            <p>📑 8 Slides</p>
+          </div>
+        </div>
+
+        <div class="notes-header-right">
+          <div class="slides-badge open status-text">
+            Open
+          </div>
+          <div class="notes-arrow">
+            ❯
+          </div>
+        </div>
+      </div>
+
+      <div class="notes-content">
+        <iframe src="notes/notes2.pdf" style="width:100%; height:500px; border:none;"></iframe>
+      </div>
+      </div>
+
+      <!-- Notes 3 -->
+      <div class="notes-card">
+
+      <div class="notes-card-header" onclick="toggleCard(this)">
+
+        <div class="notes-header-left">
+          <div class="topic-icon green">
+            <i class="fa-solid fa-arrow-trend-up"></i>
+          </div>
+
+          <div class="topic-info">
+            <h3>Topic 3: Law of Large Numbers (LLN)</h3>
+            <p>📑6 Slides</p>
+          </div>
+        </div>
+
+        <div class="notes-header-right">
+          <div class="slides-badge open status-text">
+            Open
+          </div>
+          <div class="notes-arrow">
+            ❯
+          </div>
+        </div>
+      </div>
+
+      <div class="notes-content">
+        <iframe src="notes/notes3.pdf" style="width:100%; height:500px; border:none;"></iframe>
+      </div>
+      </div>
+
+      <!-- Notes 4 -->
+      <div class="notes-card">
+
+      <div class="notes-card-header" onclick="toggleCard(this)">
+
+        <div class="notes-header-left">
+          <div class="topic-icon pink">
+            <i class="fa-solid fa-code-compare"></i>
+          </div>
+
+          <div class="topic-info">
+            <h3>Topic 4: Relationship Between LLN and Sampling Distribution</h3>
+            <p>📑6 Slides</p>
+          </div>
+        </div>
+
+        <div class="notes-header-right">
+          <div class="slides-badge open status-text">
+            Open
+          </div>
+          <div class="notes-arrow">
+            ❯
+          </div>
+        </div>
+      </div>
+
+      <div class="notes-content">
+        <iframe src="notes/notes4.pdf" style="width:100%; height:500px; border:none;"></iframe>
+      </div>
+      </div>
+
+      <!-- Notes 5 -->
+      <div class="notes-card">
+
+      <div class="notes-card-header" onclick="toggleCard(this)">
+
+        <div class="notes-header-left">
+          <div class="topic-icon yellow">
+            <i class="fa-solid fa-bullseye"></i>
+          </div>
+
+          <div class="topic-info">
+            <h3>Topic 5: Central Limit Theorem (CLT)</h3>
+            <p>📑6 Slides</p>
+          </div>
+        </div>
+
+        <div class="notes-header-right">
+          <div class="slides-badge open status-text">
+            Open
+          </div>
+          <div class="notes-arrow">
+            ❯
+          </div>
+        </div>
+      </div>
+
+      <div class="notes-content">
+        <iframe src="notes/notes5.pdf" style="width:100%; height:500px; border:none;"></iframe>
+      </div>
+      </div>
+      `;
+  }
+
+if (section === "videos") {
+  content.innerHTML = `
+    
+    <div class="videos-hero">
+
+      <div class="hero-pattern"></div>
+    
+      <div class="videos-hero-left">
+
+        <h2 class="video-page-title">Videos</h2>
+
+        <p class="video-description">
+          Explore the videos below to learn more about sampling distribution and the Law of Large Numbers (LLN). 
+          Click on each title to watch and understand the concept.
+        </p>
+
+        <div class="video-stats">
+
+          <div class="stat-box">
+            <i class="fa-regular fa-circle-play"></i>
+            <span>5 Videos</span>
+          </div>
+
+          <div class="stat-box">
+            <i class="fa-regular fa-clock"></i>
+            <span>Total Time: ~ 48 mins</span>
+          </div>
+        </div>
+      </div>
+
+      <img src="images/video-banner.png" class="video-banner-img">
+    </div>
+
+<div class="videos-list">
+
+      <!-- VIDEO 1 -->
+      <div class="video-card"
+      onclick="openVideo('video1.mp4','Introduction to Sampling Distribution')">
+
+        <div class="video-left">
+
+          <div class="video-icon blue">
+            <i class="fa-regular fa-square-caret-right"></i>
+          </div>
+
+          <h3>Video 1: Introduction to Sampling Distribution</h3>
+
+        </div>
+
+        <div class="video-right">
+
+          <span class="video-duration">
+            <i class="fa-regular fa-clock"></i>
+            8 mins 
+          </span>
+
+          <button class="watch-btn blue">
+            Watch
+          </button>
+
+          <div class="video-arrow">
+            ❯
+          </div>
+        </div>
+      </div>
+
+
+      <!-- VIDEO 2 -->
+      <div class="video-card"
+      onclick="openVideo('video2.mp4','Understanding Sampling Distribution')">
+
+        <div class="video-left">
+
+          <div class="video-icon purple">
+            <i class="fa-regular fa-square-caret-right"></i>
+          </div>
+
+          <h3>Video 2: Understanding Sampling Distribution</h3>
+
+        </div>
+
+        <div class="video-right">
+
+          <span class="video-duration">
+            <i class="fa-regular fa-clock"></i>
+            6 mins
+          </span>
+
+          <button class="watch-btn purple">
+            Watch
+          </button>
+
+          <div class="video-arrow">
+            ❯
+          </div>
+        </div>
+      </div>
+
+      <!-- VIDEO 3 -->
+      <div class="video-card"
+      onclick="openVideo('video3.mp4','Law of Large Numbers (LLN)')">
+
+        <div class="video-left">
+
+          <div class="video-icon green">
+            <i class="fa-regular fa-square-caret-right"></i>
+          </div>
+
+          <h3>Video 3: Law of Large Numbers (LLN)</h3>
+
+        </div>
+
+        <div class="video-right">
+
+          <span class="video-duration">
+            <i class="fa-regular fa-clock"></i>
+            5 mins
+          </span>
+
+          <button class="watch-btn green">
+            Watch
+          </button>
+
+          <div class="video-arrow">
+            ❯
+          </div>
+        </div>
+      </div>
+
+      <!-- VIDEO 4 -->
+      <div class="video-card"
+      onclick="openVideo('video4.mp4','Relationship Between LLN and Sampling Distribution')">
+
+        <div class="video-left">
+
+          <div class="video-icon pink">
+            <i class="fa-regular fa-square-caret-right"></i>
+          </div>
+
+          <h3>Video 4: Relationship Between LLN and Sampling Distribution</h3>
+
+        </div>
+
+        <div class="video-right">
+
+          <span class="video-duration">
+            <i class="fa-regular fa-clock"></i>
+            5 mins
+          </span>
+
+          <button class="watch-btn pink">
+            Watch
+          </button>
+
+          <div class="video-arrow">
+            ❯
+          </div>
+        </div>
+      </div>
+
+      <!-- VIDEO 5 -->
+      <div class="video-card"
+      onclick="openVideo('video5.mp4','Central Limit Theorem (CLT)')">
+
+        <div class="video-left">
+
+          <div class="video-icon yellow">
+            <i class="fa-regular fa-square-caret-right"></i>
+          </div>
+
+          <h3>Video 5: Central Limit Theorem (CLT)</h3>
+
+        </div>
+
+        <div class="video-right">
+
+          <span class="video-duration">
+            <i class="fa-regular fa-clock"></i>
+            5 mins
+          </span>
+
+          <button class="watch-btn yellow">
+            Watch
+          </button>
+
+          <div class="video-arrow">
+            ❯
+          </div>
+        </div>
+      </div>
+  `;
+}
+
+if (section === "simulations") {
+
+  content.classList.add("simulation-mode");
+
+  content.innerHTML = `
+    <iframe src="simulations/index.html" 
+      style="width:100%; height:100%; border:none;">
+    </iframe>
+  `;
+}
+
+if (section === "worksheets") {
+  content.innerHTML = `
+
+    <div class="notes-top-section">
+
+      <div class="notes-text">
+
+        <h2>Worksheets</h2>
+
+        <p class="notes-section-description">
+          Explore the worksheets below to strengthen your understanding of sampling distribution and the Law of Large Numbers (LLN). Click on each worksheet to view it.
+        </p>
+
+      </div>
+
+      <img src="images/worksheet.png" class="worksheet-hero-image">
+    </div>
+
+
+    <div class="accordion">
+
+      <!-- WORKSHEET 1 -->
+      <div class="notes-card">
+
+        <div class="notes-card-header" onclick="toggleCard(this)">
+
+          <div class="notes-header-left">
+
+            <div class="topic-icon blue">
+              <i class='bx bxs-file'></i>
+            </div>
+
+            <div class="topic-info">
+              <h3>Worksheet 1: Introduction to Sampling Distribution</h3>
+              <p>📄 3 Pages</p>
+            </div>
+
+          </div>
+
+          <div class="notes-header-right">
+
+            <div class="slides-badge open status-text">
+              Open
+            </div>
+
+            <div class="notes-arrow">
+              ❯
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="notes-content">
+          <iframe src="worksheets/worksheet1.pdf"
+          style="width:100%; height:500px; border:none;"></iframe>
+        </div>
+
+      </div>
+
+
+      <!-- WORKSHEET 2 -->
+      <div class="notes-card">
+
+        <div class="notes-card-header" onclick="toggleCard(this)">
+
+          <div class="notes-header-left">
+
+            <div class="topic-icon purple">
+              <i class='bx bxs-file'></i>
+            </div>
+
+            <div class="topic-info">
+              <h3>Worksheet 2: Understanding Sampling Distribution</h3>
+              <p>📄 3 Pages</p>
+            </div>
+
+          </div>
+
+          <div class="notes-header-right">
+
+            <div class="slides-badge open status-text">
+              Open
+            </div>
+
+            <div class="notes-arrow">
+              ❯
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="notes-content">
+          <iframe src="worksheets/worksheet2.pdf"
+          style="width:100%; height:500px; border:none;"></iframe>
+        </div>
+
+      </div>
+
+
+      <!-- WORKSHEET 3 -->
+      <div class="notes-card">
+
+        <div class="notes-card-header" onclick="toggleCard(this)">
+
+          <div class="notes-header-left">
+
+            <div class="topic-icon green">
+              <i class='bx bxs-file'></i>
+            </div>
+
+            <div class="topic-info">
+              <h3>Worksheet 3: Law of Large Numbers (LLN)</h3>
+              <p>📄 3 Pages</p>
+            </div>
+
+          </div>
+
+          <div class="notes-header-right">
+
+            <div class="slides-badge open status-text">
+              Open
+            </div>
+
+            <div class="notes-arrow">
+              ❯
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="notes-content">
+          <iframe src="worksheets/worksheet3.pdf"
+          style="width:100%; height:500px; border:none;"></iframe>
+        </div>
+
+      </div>
+
+
+      <!-- WORKSHEET 4 -->
+      <div class="notes-card">
+
+        <div class="notes-card-header" onclick="toggleCard(this)">
+
+          <div class="notes-header-left">
+
+            <div class="topic-icon pink">
+              <i class='bx bxs-file'></i>
+            </div>
+
+            <div class="topic-info">
+              <h3>Worksheet 4: Relationship Between LLN and Sampling Distribution</h3>
+              <p>📄 5 Pages</p>
+            </div>
+
+          </div>
+
+          <div class="notes-header-right">
+
+            <div class="slides-badge open status-text">
+              Open
+            </div>
+
+            <div class="notes-arrow">
+              ❯
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="notes-content">
+          <iframe src="worksheets/worksheet4.pdf"
+          style="width:100%; height:500px; border:none;"></iframe>
+        </div>
+
+      </div>
+
+
+      <!-- WORKSHEET 5 -->
+      <div class="notes-card">
+
+        <div class="notes-card-header" onclick="toggleCard(this)">
+
+          <div class="notes-header-left">
+
+            <div class="topic-icon yellow">
+              <i class='bx bxs-file'></i>
+            </div>
+
+            <div class="topic-info">
+              <h3>Worksheet 5: Central Limit Theorem (CLT)</h3>
+              <p>📄 5 Pages</p>
+            </div>
+
+          </div>
+
+          <div class="notes-header-right">
+
+            <div class="slides-badge open status-text">
+              Open
+            </div>
+
+            <div class="notes-arrow">
+              ❯
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="notes-content">
+          <iframe src="worksheets/worksheet5.pdf"
+          style="width:100%; height:500px; border:none;"></iframe>
+        </div>
+
+      </div>
+
+    </div>
+
+  `;
+}
+
+if (section === "Quizzes") {
+  content.innerHTML = `
+    <h2 class="quiz-title">Quizzes</h2>
+    <p class="quiz-section-description">
+      Click on any quiz below to test your understanding.
+    </p>
+
+    <div class="quiz-hero">
+
+  <div class="quiz-hero-left">
+
+    <div class="hero-icon darkblue">
+      <i class="fa-regular fa-lightbulb"></i>
+    </div>
+
+    <div>
+      <h2>Challenge Your Knowledge 🧠</h2>
+      <p>Complete quizzes to test your understanding and strengthen your statistics skills!</p>
+    </div>
+    </div>
+
+    <!-- ADD THIS -->
+    <div class="quiz-hero-right">
+      <img src="images/quiz-banner.png">
+    </div>
+  </div>
+
+<div class="quiz-grid">
+
+      <div class="quiz-dashboard-card full-width" onclick="window.open('https://wayground.com/join?gc=66478897', '_blank')">
+      <div class="quiz-icon green">
+        <i class="fa-regular fa-lightbulb"></i>      
+      </div>
+
+      <div class="quiz-badge green badge">01</div>
+
+      <div class="quiz-text">
+        <h3>Quiz 1</h3>
+        <p>Introduction to Sampling Distribution</p>
+      </div>
+
+      <div class="quiz-status">
+        Ready
+      </div>
+    </div>
+
+      <div class="quiz-dashboard-card full-width" onclick="window.open('https://wayground.com/join?gc=19456817', '_blank')">
+      <div class="quiz-icon purple">
+        <i class="fa-regular fa-lightbulb"></i>
+      </div>
+
+      <div class="quiz-badge purple badge">02</div>
+
+      <div class="quiz-text">
+        <h3>Quiz 2</h3>
+        <p>Understanding Sampling Distribution</p>
+      </div>
+
+      <div class="quiz-status">
+        Ready
+      </div>
+    </div>
+
+      <div class="quiz-dashboard-card" onclick="window.open('https://wayground.com/join?gc=64021297', '_blank')">
+      <div class="quiz-icon blue">
+        <i class="fa-regular fa-lightbulb"></i>
+      </div>
+
+      <div class="quiz-badge blue badge">03</div>
+
+      <div class="quiz-text">
+        <h3>Quiz 3</h3>
+        <p>Law of Large Numbers (LLN)</p>
+      </div>
+
+      <div class="quiz-status">
+        Ready
+      </div>
+    </div>
+
+      <div class="quiz-dashboard-card" onclick="window.open('https://wayground.com/join?gc=33952561', '_blank')">
+      <div class="quiz-icon pink">
+        <i class="fa-regular fa-lightbulb"></i>
+      </div>
+
+      <div class="quiz-badge pink badge">04</div>
+
+      <div class="quiz-text">
+        <h3>Quiz 4</h3>
+        <p>Relationship Between LLN and Sampling Distribution</p>
+      </div>
+
+      <div class="quiz-status">
+        Ready
+      </div>
+    </div>
+
+      <div class="quiz-dashboard-card" onclick="window.open('https://wayground.com/join?gc=61215537', '_blank')">
+      <div class="quiz-icon orange">
+        <i class="fa-regular fa-lightbulb"></i>
+      </div>
+
+      <div class="quiz-badge orange badge">04</div>
+
+      <div class="quiz-text">
+        <h3>Quiz 5</h3>
+        <p>Central Limit Theorem (CLT)</p>
+      </div>
+
+      <div class="quiz-status">
+        Ready
+      </div>
+    </div>
+  `;
+}
+}
+
+function openVideo(file,title) {
+  const content = document.getElementById("content");
+
+  content.innerHTML = `
+
+    <h2 class="video-title">${title}</h2>
+
+    <div class="video-container">
+      <video controls>
+        <source src="videos/${file}" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="back-btn" onclick="loadContent('videos')">
+      Back to Videos
+    </div>
+
+  `;
+}
+
+function toggleVideo(id) {
+  const content = document.getElementById(id);
+  const card = content.previousElementSibling;
+
+  // Tutup semua video-content lain
+  document.querySelectorAll('.video-content').forEach(vc => {
+    if(vc !== content) {
+      vc.classList.remove('open');
+      vc.previousElementSibling.classList.remove('active');
+    }
+  });
+
+  // Toggle current
+  if(content.classList.contains('open')) {
+    content.classList.remove('open');
+    card.classList.remove('active');
+  } else {
+    content.classList.add('open');
+    card.classList.add('active');
+  }
+}
+
+function toggleCard(header) {
+
+  const card = header.parentElement;
+
+  const content = card.querySelector('.notes-content');
+
+  const badge = card.querySelector(".status-text");
+
+  // tutup semua card lain
+  document.querySelectorAll('.accordion .notes-card').forEach(c => {
+
+    if (c !== card) {
+
+      c.classList.remove('active');
+
+      const otherContent = c.querySelector('.notes-content');
+
+      if(otherContent){
+        otherContent.style.maxHeight = null;
+      }
+
+      const otherBadge = c.querySelector(".status-text");
+
+      if(otherBadge){
+
+        otherBadge.textContent = "Open";
+
+        otherBadge.classList.remove("close");
+
+        otherBadge.classList.add("open");
+      }
+    }
+  });
+
+  // toggle current
+  card.classList.toggle('active');
+
+  if(content.style.maxHeight){
+
+    content.style.maxHeight = null;
+
+    badge.textContent = "Open";
+
+    badge.classList.remove("close");
+
+    badge.classList.add("open");
+
+  } else {
+
+    content.style.maxHeight = content.scrollHeight + "px";
+
+    badge.textContent = "Close";
+
+    badge.classList.remove("open");
+
+    badge.classList.add("close");
+  }
+}
+
+function setupAutoCloseSidebar() {
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("overlay");
+  const toggleBtn = document.querySelector(".toggle-btn");
+
+  // Klik toggle button
+  console.log(toggleBtn); // confirm element wujud
+  toggleBtn.addEventListener("click", () => {
+  if (sidebar.classList.contains("open") || sidebar.classList.contains("collapsed")) {
+    sidebar.classList.toggle("open");
+    sidebar.classList.toggle("collapsed");
+  } else {
+    sidebar.classList.add("open"); // default open
+  }
+
+  // overlay only for small screens
+  if (window.innerWidth <= 992) {
+    overlay.classList.toggle("active");
+  }
+});
+
+  // Klik overlay -> tutup sidebar
+  overlay.addEventListener("click", () => {
+    sidebar.classList.remove("open");
+    overlay.classList.remove("active");
+  });
+
+  // 🔥 FIXED: auto close bila klik menu (MUST BE HERE)
+  document.querySelectorAll(".menu-item").forEach(item => {
+    item.addEventListener("click", () => {
+      if(window.innerWidth <= 992){
+        sidebar.classList.remove("open");
+        overlay.classList.remove("active");
+      }
+    });
+  });
+}
+
+window.addEventListener("resize", () => {
+  const sidebar = document.getElementById("sidebar");
+  const overlay = document.getElementById("overlay");
+
+  if (window.innerWidth > 992) {
+    sidebar.classList.remove("open");
+    overlay.classList.remove("active");
+
+  } 
+});
+
+document.addEventListener("DOMContentLoaded", setupAutoCloseSidebar);
+
+window.addEventListener("DOMContentLoaded", () => {
+  loadContent("dashboard");
+});

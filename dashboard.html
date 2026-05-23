@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+  <!-- Sidebar -->
+  <div class="container">
+
+  <div class="sidebar" id="sidebar">
+    
+    <div class="menu-item" onclick="setActiveMenu(this); loadContent('notes')">
+    <i class="fa-solid fa-book-open"></i>
+    <span class="text">Notes</span>
+    </div>
+
+    <div class="menu-item" onclick="setActiveMenu(this); loadContent('videos')">
+    <i class="fa-solid fa-circle-play"></i>
+    <span class="text">Videos</span>
+    </div>
+
+    <div class="menu-item" onclick="setActiveMenu(this); loadContent('simulations')">
+    <i class="fa-solid fa-sliders"></i>
+    <span class="text">Simulations</span>
+    </div>
+
+    <div class="menu-item" onclick="setActiveMenu(this); loadContent('worksheets')">
+    <i class="fa-solid fa-file-lines"></i>
+    <span class="text">Worksheets</span>
+    </div>
+
+    <div class="menu-item" onclick="setActiveMenu(this); loadContent('Quizzes')">
+    <i class="fa-solid fa-puzzle-piece"></i>
+    <span class="text">Quizzes</span>
+    </div>
+  </div>
+
+  <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+
+  <!-- Content -->
+  <div class="content-wrapper">
+
+    <div class="top-navbar"> 
+
+      <button class="toggle-btn">☰</button>
+
+      <div class="top-icons">
+
+        <div class="home-btn" onclick="loadContent('dashboard')">
+        <i class="fa-solid fa-house-chimney"></i>
+        </div>
+      </div>
+    </div>
+
+  <div class="content" id="content">
+
+<script src="js/main.js"></script>
+
+</body>
+</html>

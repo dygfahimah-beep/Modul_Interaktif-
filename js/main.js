@@ -154,7 +154,7 @@ if (section === "notes") {
       <!-- Notes 1 -->
       <div class="notes-card">
 
-      <div class="notes-card-header" onclick="toggleCard(this)">
+    <div class="notes-card-header" onclick="handleNotesCard(this, 'notes/notes1.pdf')">
 
         <div class="notes-header-left">
 
@@ -180,13 +180,13 @@ if (section === "notes") {
 
       <div class="notes-content">
         <iframe src="notes/notes1.pdf" style="width:100%; height:500px; border:none;"></iframe>
-      </div>
+        </div>
       </div>
 
       <!-- Notes 2 -->
       <div class="notes-card">
 
-      <div class="notes-card-header" onclick="toggleCard(this)">
+    <div class="notes-card-header" onclick="handleNotesCard(this, 'notes/notes2.pdf')">
 
         <div class="notes-header-left">
 
@@ -218,7 +218,7 @@ if (section === "notes") {
       <!-- Notes 3 -->
       <div class="notes-card">
 
-      <div class="notes-card-header" onclick="toggleCard(this)">
+    <div class="notes-card-header" onclick="handleNotesCard(this, 'notes/notes3.pdf')">
 
         <div class="notes-header-left">
           <div class="topic-icon green">
@@ -249,7 +249,7 @@ if (section === "notes") {
       <!-- Notes 4 -->
       <div class="notes-card">
 
-      <div class="notes-card-header" onclick="toggleCard(this)">
+    <div class="notes-card-header" onclick="handleNotesCard(this, 'notes/notes4.pdf')">
 
         <div class="notes-header-left">
           <div class="topic-icon pink">
@@ -280,7 +280,7 @@ if (section === "notes") {
       <!-- Notes 5 -->
       <div class="notes-card">
 
-      <div class="notes-card-header" onclick="toggleCard(this)">
+    <div class="notes-card-header" onclick="handleNotesCard(this, 'notes/notes5.pdf')">
 
         <div class="notes-header-left">
           <div class="topic-icon yellow">
@@ -355,16 +355,18 @@ if (section === "videos") {
             <i class="fa-regular fa-square-caret-right"></i>
           </div>
 
+        <div class="video-info">
+
           <h3>Video 1: Introduction to Sampling Distribution</h3>
-
-        </div>
-
-        <div class="video-right">
 
           <span class="video-duration">
             <i class="fa-regular fa-clock"></i>
             8 mins 
           </span>
+        </div>
+      </div>
+
+        <div class="video-right">
 
           <button class="watch-btn blue">
             Watch
@@ -375,6 +377,7 @@ if (section === "videos") {
           </div>
         </div>
       </div>
+    </div>
 
 
       <!-- VIDEO 2 -->
@@ -387,16 +390,18 @@ if (section === "videos") {
             <i class="fa-regular fa-square-caret-right"></i>
           </div>
 
+        <div class="video-info">
+
           <h3>Video 2: Understanding Sampling Distribution</h3>
-
-        </div>
-
-        <div class="video-right">
 
           <span class="video-duration">
             <i class="fa-regular fa-clock"></i>
             6 mins
           </span>
+        </div>
+        </div>
+
+        <div class="video-right">
 
           <button class="watch-btn purple">
             Watch
@@ -407,6 +412,8 @@ if (section === "videos") {
           </div>
         </div>
       </div>
+    </div>
+
 
       <!-- VIDEO 3 -->
       <div class="video-card"
@@ -418,16 +425,18 @@ if (section === "videos") {
             <i class="fa-regular fa-square-caret-right"></i>
           </div>
 
+        <div class="video-info">
+
           <h3>Video 3: Law of Large Numbers (LLN)</h3>
-
-        </div>
-
-        <div class="video-right">
-
+          
           <span class="video-duration">
             <i class="fa-regular fa-clock"></i>
             5 mins
           </span>
+        </div>
+        </div>
+
+        <div class="video-right">
 
           <button class="watch-btn green">
             Watch
@@ -438,7 +447,8 @@ if (section === "videos") {
           </div>
         </div>
       </div>
-
+      </div>
+            
       <!-- VIDEO 4 -->
       <div class="video-card"
       onclick="openVideo('video4.mp4','Relationship Between LLN and Sampling Distribution')">
@@ -449,16 +459,17 @@ if (section === "videos") {
             <i class="fa-regular fa-square-caret-right"></i>
           </div>
 
+        <div class="video-info">
           <h3>Video 4: Relationship Between LLN and Sampling Distribution</h3>
-
-        </div>
-
-        <div class="video-right">
-
+          
           <span class="video-duration">
             <i class="fa-regular fa-clock"></i>
             5 mins
           </span>
+        </div>
+        </div>
+
+        <div class="video-right">
 
           <button class="watch-btn pink">
             Watch
@@ -468,6 +479,7 @@ if (section === "videos") {
             ❯
           </div>
         </div>
+      </div>
       </div>
 
       <!-- VIDEO 5 -->
@@ -480,16 +492,20 @@ if (section === "videos") {
             <i class="fa-regular fa-square-caret-right"></i>
           </div>
 
+        <div class="video-info">
+
           <h3>Video 5: Central Limit Theorem (CLT)</h3>
-
-        </div>
-
-        <div class="video-right">
-
+          
           <span class="video-duration">
             <i class="fa-regular fa-clock"></i>
             5 mins
           </span>
+
+        </div>
+      </div>
+
+
+        <div class="video-right">
 
           <button class="watch-btn yellow">
             Watch
@@ -499,6 +515,7 @@ if (section === "videos") {
             ❯
           </div>
         </div>
+      </div>
       </div>
   `;
 }
@@ -517,7 +534,7 @@ if (section === "simulations") {
 if (section === "worksheets") {
   content.innerHTML = `
 
-    <div class="notes-top-section">
+    <div class="worksheet-top-section">
 
       <div class="notes-text">
 
@@ -538,7 +555,7 @@ if (section === "worksheets") {
       <!-- WORKSHEET 1 -->
       <div class="notes-card">
 
-        <div class="notes-card-header" onclick="toggleCard(this)">
+      <div class="notes-card-header" onclick="window.open('worksheets/worksheet1.pdf', '_blank')">
 
           <div class="notes-header-left">
 
@@ -578,7 +595,7 @@ if (section === "worksheets") {
       <!-- WORKSHEET 2 -->
       <div class="notes-card">
 
-        <div class="notes-card-header" onclick="toggleCard(this)">
+      <div class="notes-card-header" onclick="window.open('worksheets/worksheet2.pdf', '_blank')">
 
           <div class="notes-header-left">
 
@@ -618,7 +635,7 @@ if (section === "worksheets") {
       <!-- WORKSHEET 3 -->
       <div class="notes-card">
 
-        <div class="notes-card-header" onclick="toggleCard(this)">
+      <div class="notes-card-header" onclick="window.open('worksheets/worksheet3.pdf', '_blank')">
 
           <div class="notes-header-left">
 
@@ -658,7 +675,7 @@ if (section === "worksheets") {
       <!-- WORKSHEET 4 -->
       <div class="notes-card">
 
-        <div class="notes-card-header" onclick="toggleCard(this)">
+      <div class="notes-card-header" onclick="window.open('worksheets/worksheet4.pdf', '_blank')">
 
           <div class="notes-header-left">
 
@@ -698,7 +715,7 @@ if (section === "worksheets") {
       <!-- WORKSHEET 5 -->
       <div class="notes-card">
 
-        <div class="notes-card-header" onclick="toggleCard(this)">
+      <div class="notes-card-header" onclick="window.open('worksheets/worksheet5.pdf', '_blank')">
 
           <div class="notes-header-left">
 
@@ -856,6 +873,19 @@ if (section === "Quizzes") {
 }
 }
 
+function handleNotesCard(element, pdfPath){
+
+    // PHONE ONLY
+    if(window.innerWidth < 440){
+
+        window.open(pdfPath, "_blank");
+        return;
+    }
+
+    // TABLET + LAPTOP
+    toggleCard(element);
+}
+
 function openVideo(file,title) {
   const content = document.getElementById("content");
 
@@ -916,7 +946,7 @@ function toggleCard(header) {
       const otherContent = c.querySelector('.notes-content');
 
       if(otherContent){
-        otherContent.style.maxHeight = null;
+        otherContent.style.maxHeight = "0px";
       }
 
       const otherBadge = c.querySelector(".status-text");
@@ -932,12 +962,12 @@ function toggleCard(header) {
     }
   });
 
-  // toggle current
-  card.classList.toggle('active');
+  // kalau dah active → tutup
+  if(card.classList.contains("active")){
 
-  if(content.style.maxHeight){
+    card.classList.remove("active");
 
-    content.style.maxHeight = null;
+    content.style.maxHeight = "0px";
 
     badge.textContent = "Open";
 
@@ -946,6 +976,9 @@ function toggleCard(header) {
     badge.classList.add("open");
 
   } else {
+
+    // buka current
+    card.classList.add("active");
 
     content.style.maxHeight = content.scrollHeight + "px";
 

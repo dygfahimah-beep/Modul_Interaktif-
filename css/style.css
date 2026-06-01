@@ -1368,13 +1368,13 @@ button:hover {
 }
 
 .top-navbar{
-  left: 180px;
+  left: 220px;
 }
 
 .sidebar {
   position: relative;
   left: 0px;
-  width: 180px;
+  width: 220px;
   transition: 0.35s cubic-bezier(.22,1,.36,1);
   flex-shrink: 0;
 }
@@ -1407,17 +1407,17 @@ button:hover {
 .menu-item {
   margin-left: 5px;
   gap: 2px;
-  font-size: 13px;
+  font-size: 15px;
   padding: 10px 8px;
 }
 
 .menu-item i{
   margin-right: 20px;
-  padding-left: 8px;
+  padding-left: 10px;
 }
 
 .menu-item span{
-  margin-right: -10px;
+  margin-right: -8px;
 }
 
 .menu-item:hover {

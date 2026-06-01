@@ -64,6 +64,7 @@ function loadContent(section) {
 
     </div>
 
+    
     <div class="dashboard-grid">
 
       <div class="dashboard-card" onclick="loadContent('notes')">
@@ -111,7 +112,7 @@ function loadContent(section) {
         </div>
 
         <div class="card-text">
-          <h3>Worksheet</h3>
+          <h3>Worksheets</h3>
           <p>Complete exercises and activities to strengthen key statistical concepts.</p>
         </div>
 
@@ -169,11 +170,8 @@ if (section === "notes") {
         </div>
 
         <div class="notes-header-right">
-          <div class="slides-badge open status-text">
+          <div class="slides-badge open status-text blue">
             Open
-          </div>
-          <div class="notes-arrow">
-            ❯
           </div>
         </div>
       </div>
@@ -201,11 +199,8 @@ if (section === "notes") {
         </div>
 
         <div class="notes-header-right">
-          <div class="slides-badge open status-text">
+          <div class="slides-badge open status-text purple">
             Open
-          </div>
-          <div class="notes-arrow">
-            ❯
           </div>
         </div>
       </div>
@@ -232,11 +227,8 @@ if (section === "notes") {
         </div>
 
         <div class="notes-header-right">
-          <div class="slides-badge open status-text">
+          <div class="slides-badge open status-text green">
             Open
-          </div>
-          <div class="notes-arrow">
-            ❯
           </div>
         </div>
       </div>
@@ -263,11 +255,8 @@ if (section === "notes") {
         </div>
 
         <div class="notes-header-right">
-          <div class="slides-badge open status-text">
+          <div class="slides-badge open status-text pink">
             Open
-          </div>
-          <div class="notes-arrow">
-            ❯
           </div>
         </div>
       </div>
@@ -294,11 +283,8 @@ if (section === "notes") {
         </div>
 
         <div class="notes-header-right">
-          <div class="slides-badge open status-text">
+          <div class="slides-badge open status-text yellow">
             Open
-          </div>
-          <div class="notes-arrow">
-            ❯
           </div>
         </div>
       </div>
@@ -312,38 +298,24 @@ if (section === "notes") {
 
 if (section === "videos") {
   content.innerHTML = `
-    
+
     <div class="videos-hero">
 
-      <div class="hero-pattern"></div>
-    
       <div class="videos-hero-left">
-
         <h2 class="video-page-title">Videos</h2>
 
-        <p class="video-description">
-          Explore the videos below to learn more about sampling distribution and the Law of Large Numbers (LLN). 
-          Click on each title to watch and understand the concept.
-        </p>
+      <p class="video-description">
+        Learn key statistical concepts through engaging video lessons on Sampling
+        Distribution, the Law of Large Numbers (LLN), and the Central Limit Theorem (CLT).
+      </p>
 
-        <div class="video-stats">
-
-          <div class="stat-box">
-            <i class="fa-regular fa-circle-play"></i>
-            <span>5 Videos</span>
-          </div>
-
-          <div class="stat-box">
-            <i class="fa-regular fa-clock"></i>
-            <span>Total Time: ~ 48 mins</span>
-          </div>
-        </div>
       </div>
 
       <img src="images/video-banner.png" class="video-banner-img">
+
     </div>
 
-<div class="videos-list">
+    <div class="videos-list">
 
       <!-- VIDEO 1 -->
       <div class="video-card"
@@ -352,33 +324,20 @@ if (section === "videos") {
         <div class="video-left">
 
           <div class="video-icon blue">
-            <i class="fa-regular fa-square-caret-right"></i>
+            <i class="fa-solid fa-circle-play"></i>
           </div>
 
-        <div class="video-info">
-
-          <h3>Video 1: Introduction to Sampling Distribution</h3>
-
-          <span class="video-duration">
-            <i class="fa-regular fa-clock"></i>
-            8 mins 
-          </span>
+          <div class="video-info">
+            <h3>Video 1</h3>
+            <p>Introduction to Sampling Distribution</p>
+          </div>
         </div>
-      </div>
 
         <div class="video-right">
-
-          <button class="watch-btn blue">
-            Watch
-          </button>
-
-          <div class="video-arrow">
-            ❯
-          </div>
+          <button class="watch-btn blue-btn">Watch</button>
         </div>
-      </div>
-    </div>
 
+      </div>
 
       <!-- VIDEO 2 -->
       <div class="video-card"
@@ -387,33 +346,20 @@ if (section === "videos") {
         <div class="video-left">
 
           <div class="video-icon purple">
-            <i class="fa-regular fa-square-caret-right"></i>
+            <i class="fa-solid fa-circle-play"></i>
           </div>
 
-        <div class="video-info">
-
-          <h3>Video 2: Understanding Sampling Distribution</h3>
-
-          <span class="video-duration">
-            <i class="fa-regular fa-clock"></i>
-            6 mins
-          </span>
-        </div>
+          <div class="video-info">
+            <h3>Video 2</h3>
+            <p>Understanding Sampling Distribution</p>
+          </div>
         </div>
 
         <div class="video-right">
-
-          <button class="watch-btn purple">
-            Watch
-          </button>
-
-          <div class="video-arrow">
-            ❯
-          </div>
+          <button class="watch-btn purple-btn">Watch</button>
         </div>
-      </div>
-    </div>
 
+      </div>
 
       <!-- VIDEO 3 -->
       <div class="video-card"
@@ -422,33 +368,21 @@ if (section === "videos") {
         <div class="video-left">
 
           <div class="video-icon green">
-            <i class="fa-regular fa-square-caret-right"></i>
+            <i class="fa-solid fa-circle-play"></i>
           </div>
 
-        <div class="video-info">
-
-          <h3>Video 3: Law of Large Numbers (LLN)</h3>
-          
-          <span class="video-duration">
-            <i class="fa-regular fa-clock"></i>
-            5 mins
-          </span>
-        </div>
+          <div class="video-info">
+            <h3>Video 3</h3>
+            <p>Law of Large Numbers (LLN)</p>
+          </div>
         </div>
 
         <div class="video-right">
-
-          <button class="watch-btn green">
-            Watch
-          </button>
-
-          <div class="video-arrow">
-            ❯
-          </div>
+          <button class="watch-btn green-btn">Watch</button>
         </div>
+
       </div>
-      </div>
-            
+
       <!-- VIDEO 4 -->
       <div class="video-card"
       onclick="openVideo('video4.mp4','Relationship Between LLN and Sampling Distribution')">
@@ -456,30 +390,20 @@ if (section === "videos") {
         <div class="video-left">
 
           <div class="video-icon pink">
-            <i class="fa-regular fa-square-caret-right"></i>
+            <i class="fa-solid fa-circle-play"></i>
           </div>
 
-        <div class="video-info">
-          <h3>Video 4: Relationship Between LLN and Sampling Distribution</h3>
-          
-          <span class="video-duration">
-            <i class="fa-regular fa-clock"></i>
-            5 mins
-          </span>
-        </div>
+          <div class="video-info">
+            <h3>Video 4</h3>
+            <p>Relationship Between LLN and Sampling Distribution</p>
+          </div>
+
         </div>
 
         <div class="video-right">
-
-          <button class="watch-btn pink">
-            Watch
-          </button>
-
-          <div class="video-arrow">
-            ❯
-          </div>
+          <button class="watch-btn pink-btn">Watch</button>
         </div>
-      </div>
+
       </div>
 
       <!-- VIDEO 5 -->
@@ -489,34 +413,20 @@ if (section === "videos") {
         <div class="video-left">
 
           <div class="video-icon yellow">
-            <i class="fa-regular fa-square-caret-right"></i>
+            <i class="fa-solid fa-circle-play"></i>
           </div>
 
-        <div class="video-info">
-
-          <h3>Video 5: Central Limit Theorem (CLT)</h3>
-          
-          <span class="video-duration">
-            <i class="fa-regular fa-clock"></i>
-            5 mins
-          </span>
-
+          <div class="video-info">
+            <h3>Video 5</h3>
+            <p>Central Limit Theorem (CLT)</p>
+          </div>
         </div>
-      </div>
-
 
         <div class="video-right">
-
-          <button class="watch-btn yellow">
-            Watch
-          </button>
-
-          <div class="video-arrow">
-            ❯
-          </div>
+          <button class="watch-btn yellow-btn">Watch</button>
         </div>
       </div>
-      </div>
+    </div>
   `;
 }
 
@@ -534,7 +444,7 @@ if (section === "simulations") {
 if (section === "worksheets") {
   content.innerHTML = `
 
-    <div class="worksheet-top-section">
+    <div class="notes-top-section">
 
       <div class="notes-text">
 
@@ -550,207 +460,146 @@ if (section === "worksheets") {
     </div>
 
 
-    <div class="accordion">
+    <div class="worksheet-grid">
 
       <!-- WORKSHEET 1 -->
-      <div class="notes-card">
+      <div class="worksheet-card">
 
-      <div class="notes-card-header" onclick="window.open('worksheets/worksheet1.pdf', '_blank')">
+      <div class="worksheet-card-header" onclick="window.open('worksheets/worksheet1.pdf', '_blank')">
 
-          <div class="notes-header-left">
+          <div class="worksheet-header-left">
 
-            <div class="topic-icon blue">
+            <div class="worksheet-icon blue">
               <i class='bx bxs-file'></i>
             </div>
 
-            <div class="topic-info">
-              <h3>Worksheet 1: Introduction to Sampling Distribution</h3>
-              <p>📄 3 Pages</p>
+            <div class="worksheet-left">
+              <h3>Worksheet 1</h3>
+              <p>Introduction to Sampling Distribution</p>
             </div>
 
           </div>
 
-          <div class="notes-header-right">
+          <div class="worksheet-header-right">
 
-            <div class="slides-badge open status-text">
+            <div class="worksheet-badge open status-text blue-btn">
               Open
             </div>
-
-            <div class="notes-arrow">
-              ❯
-            </div>
-
           </div>
-
         </div>
-
-        <div class="notes-content">
-          <iframe src="worksheets/worksheet1.pdf"
-          style="width:100%; height:500px; border:none;"></iframe>
-        </div>
-
       </div>
 
 
       <!-- WORKSHEET 2 -->
-      <div class="notes-card">
+      <div class="worksheet-card">
 
-      <div class="notes-card-header" onclick="window.open('worksheets/worksheet2.pdf', '_blank')">
+      <div class="worksheet-card-header" onclick="window.open('worksheets/worksheet2.pdf', '_blank')">
 
-          <div class="notes-header-left">
+          <div class="worksheet-header-left">
 
-            <div class="topic-icon purple">
+            <div class="worksheet-icon purple">
               <i class='bx bxs-file'></i>
             </div>
 
-            <div class="topic-info">
-              <h3>Worksheet 2: Understanding Sampling Distribution</h3>
-              <p>📄 3 Pages</p>
+            <div class="worksheet-left">
+              <h3>Worksheet 2</h3>
+              <p>Understanding Sampling Distribution</p>
             </div>
 
           </div>
 
-          <div class="notes-header-right">
+          <div class="worksheet-header-right">
 
-            <div class="slides-badge open status-text">
+            <div class="worksheet-badge open status-text purple-btn">
               Open
             </div>
-
-            <div class="notes-arrow">
-              ❯
-            </div>
-
           </div>
-
         </div>
-
-        <div class="notes-content">
-          <iframe src="worksheets/worksheet2.pdf"
-          style="width:100%; height:500px; border:none;"></iframe>
-        </div>
-
       </div>
 
 
       <!-- WORKSHEET 3 -->
-      <div class="notes-card">
+      <div class="worksheet-card">
 
-      <div class="notes-card-header" onclick="window.open('worksheets/worksheet3.pdf', '_blank')">
+      <div class="worksheet-card-header" onclick="window.open('worksheets/worksheet3.pdf', '_blank')">
 
-          <div class="notes-header-left">
+          <div class="worksheet-header-left">
 
-            <div class="topic-icon green">
+            <div class="worksheet-icon green">
               <i class='bx bxs-file'></i>
             </div>
 
-            <div class="topic-info">
-              <h3>Worksheet 3: Law of Large Numbers (LLN)</h3>
-              <p>📄 3 Pages</p>
+            <div class="worksheet-left">
+              <h3>Worksheet 3</h3>
+              <p>Law of Large Numbers (LLN)</p>
             </div>
 
           </div>
 
-          <div class="notes-header-right">
+          <div class="worksheet-header-right">
 
-            <div class="slides-badge open status-text">
+            <div class="worksheet-badge open status-text green-btn">
               Open
             </div>
-
-            <div class="notes-arrow">
-              ❯
-            </div>
-
           </div>
-
         </div>
-
-        <div class="notes-content">
-          <iframe src="worksheets/worksheet3.pdf"
-          style="width:100%; height:500px; border:none;"></iframe>
-        </div>
-
       </div>
 
 
       <!-- WORKSHEET 4 -->
-      <div class="notes-card">
+      <div class="worksheet-card">
 
-      <div class="notes-card-header" onclick="window.open('worksheets/worksheet4.pdf', '_blank')">
+      <div class="worksheet-card-header" onclick="window.open('worksheets/worksheet4.pdf', '_blank')">
 
-          <div class="notes-header-left">
+          <div class="worksheet-header-left">
 
-            <div class="topic-icon pink">
+            <div class="worksheet-icon pink">
               <i class='bx bxs-file'></i>
             </div>
 
-            <div class="topic-info">
-              <h3>Worksheet 4: Relationship Between LLN and Sampling Distribution</h3>
-              <p>📄 5 Pages</p>
+            <div class="worksheet-left">
+              <h3>Worksheet 4</h3>
+              <p>Relationship Between LLN and Sampling Distribution</p>
             </div>
 
           </div>
 
-          <div class="notes-header-right">
+          <div class="worksheet-header-right">
 
-            <div class="slides-badge open status-text">
+            <div class="worksheet-badge open status-text pink-btn">
               Open
             </div>
-
-            <div class="notes-arrow">
-              ❯
-            </div>
-
           </div>
-
         </div>
-
-        <div class="notes-content">
-          <iframe src="worksheets/worksheet4.pdf"
-          style="width:100%; height:500px; border:none;"></iframe>
-        </div>
-
       </div>
 
 
       <!-- WORKSHEET 5 -->
-      <div class="notes-card">
+      <div class="worksheet-card">
 
-      <div class="notes-card-header" onclick="window.open('worksheets/worksheet5.pdf', '_blank')">
+      <div class="worksheet-card-header" onclick="window.open('worksheets/worksheet5.pdf', '_blank')">
 
-          <div class="notes-header-left">
+          <div class="worksheet-header-left">
 
-            <div class="topic-icon yellow">
+            <div class="worksheet-icon yellow">
               <i class='bx bxs-file'></i>
             </div>
 
-            <div class="topic-info">
-              <h3>Worksheet 5: Central Limit Theorem (CLT)</h3>
-              <p>📄 5 Pages</p>
+            <div class="worksheet-left">
+              <h3>Worksheet 5</h3>
+              <p>Central Limit Theorem (CLT)</p>
             </div>
 
           </div>
 
-          <div class="notes-header-right">
+          <div class="worksheet-header-right">
 
-            <div class="slides-badge open status-text">
+            <div class="worksheet-badge open status-text yellow-btn">
               Open
             </div>
-
-            <div class="notes-arrow">
-              ❯
-            </div>
-
           </div>
-
         </div>
-
-        <div class="notes-content">
-          <iframe src="worksheets/worksheet5.pdf"
-          style="width:100%; height:500px; border:none;"></iframe>
-        </div>
-
       </div>
-
     </div>
 
   `;
@@ -758,30 +607,17 @@ if (section === "worksheets") {
 
 if (section === "Quizzes") {
   content.innerHTML = `
+<div class="quiz-top-section">
+
+  <img src="images/quiz-banner.png" class="quiz-banner">
+
+  <div class="quiz-text-section">
     <h2 class="quiz-title">Quizzes</h2>
+
     <p class="quiz-section-description">
-      Click on any quiz below to test your understanding.
-    </p>
-
-    <div class="quiz-hero">
-
-  <div class="quiz-hero-left">
-
-    <div class="hero-icon darkblue">
-      <i class="fa-regular fa-lightbulb"></i>
-    </div>
-
-    <div>
-      <h2>Challenge Your Knowledge 🧠</h2>
-      <p>Complete quizzes to test your understanding and strengthen your statistics skills!</p>
-    </div>
-    </div>
-
-    <!-- ADD THIS -->
-    <div class="quiz-hero-right">
-      <img src="images/quiz-banner.png">
-    </div>
+      Complete the quizzes below to assess your understanding of sampling distribution and improve your statistics skills.    </p>
   </div>
+</div>
 
 <div class="quiz-grid">
 
@@ -790,15 +626,13 @@ if (section === "Quizzes") {
         <i class="fa-regular fa-lightbulb"></i>      
       </div>
 
-      <div class="quiz-badge green badge">01</div>
-
       <div class="quiz-text">
         <h3>Quiz 1</h3>
         <p>Introduction to Sampling Distribution</p>
       </div>
 
-      <div class="quiz-status">
-        Ready
+      <div class="quiz-status green-btn">
+        Start 
       </div>
     </div>
 
@@ -807,15 +641,13 @@ if (section === "Quizzes") {
         <i class="fa-regular fa-lightbulb"></i>
       </div>
 
-      <div class="quiz-badge purple badge">02</div>
-
       <div class="quiz-text">
         <h3>Quiz 2</h3>
         <p>Understanding Sampling Distribution</p>
       </div>
 
-      <div class="quiz-status">
-        Ready
+      <div class="quiz-status purple-btn">
+        Start 
       </div>
     </div>
 
@@ -824,15 +656,13 @@ if (section === "Quizzes") {
         <i class="fa-regular fa-lightbulb"></i>
       </div>
 
-      <div class="quiz-badge blue badge">03</div>
-
       <div class="quiz-text">
         <h3>Quiz 3</h3>
         <p>Law of Large Numbers (LLN)</p>
       </div>
 
-      <div class="quiz-status">
-        Ready
+      <div class="quiz-status blue-btn">
+        Start 
       </div>
     </div>
 
@@ -841,32 +671,28 @@ if (section === "Quizzes") {
         <i class="fa-regular fa-lightbulb"></i>
       </div>
 
-      <div class="quiz-badge pink badge">04</div>
-
       <div class="quiz-text">
         <h3>Quiz 4</h3>
         <p>Relationship Between LLN and Sampling Distribution</p>
       </div>
 
-      <div class="quiz-status">
-        Ready
+      <div class="quiz-status pink-btn">
+        Start 
       </div>
     </div>
 
       <div class="quiz-dashboard-card" onclick="window.open('https://wayground.com/join?gc=61215537', '_blank')">
-      <div class="quiz-icon orange">
+      <div class="quiz-icon yellow">
         <i class="fa-regular fa-lightbulb"></i>
       </div>
-
-      <div class="quiz-badge orange badge">04</div>
 
       <div class="quiz-text">
         <h3>Quiz 5</h3>
         <p>Central Limit Theorem (CLT)</p>
       </div>
 
-      <div class="quiz-status">
-        Ready
+      <div class="quiz-status yellow-btn">
+        Start 
       </div>
     </div>
   `;
@@ -1043,4 +869,29 @@ document.addEventListener("DOMContentLoaded", setupAutoCloseSidebar);
 
 window.addEventListener("DOMContentLoaded", () => {
   loadContent("dashboard");
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+
+const sidebar = document.getElementById("sidebar");
+const content = document.getElementById("content");
+
+/* FOR TABLET */
+if(window.innerWidth <= 768){
+
+    sidebar.classList.add("collapsed");
+
+}
+
+content.addEventListener("click", () => {
+
+    if(
+        window.innerWidth <= 768 &&
+        !sidebar.classList.contains("collapsed")
+    ){
+
+        sidebar.classList.add("collapsed");
+
+    }
+})
 });

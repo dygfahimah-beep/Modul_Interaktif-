@@ -606,7 +606,7 @@ if (section === "worksheets") {
 }
 
 if (section === "Quizzes") {
-  content.innerHTML = `
+content.innerHTML = `
 <div class="quiz-top-section">
 
   <img src="images/quiz-banner.png" class="quiz-banner">
@@ -725,10 +725,11 @@ function openVideo(file,title) {
       </video>
     </div>
 
+    <div class= "back-btn-wrapper">
     <div class="back-btn" onclick="loadContent('videos')">
       Back to Videos
     </div>
-
+    </div>
   `;
 }
 

@@ -701,14 +701,14 @@ if (section === "Quizzes") {
 
 function handleNotesCard(element, pdfPath){
 
-    // PHONE ONLY
-    if(window.innerWidth < 767){
+    // TABLET AND PHONE ONLY
+    if(window.innerWidth < 1179){
 
         window.open(pdfPath, "_blank");
         return;
     }
 
-    // TABLET + LAPTOP
+    // LAPTOP
     toggleCard(element);
 }
 

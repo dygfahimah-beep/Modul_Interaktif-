@@ -4,7 +4,7 @@ function login() {
   const matric = document.getElementById("matric").value;
 
   if (name === "" || matric === "") {
-    alert("Sila isi nama dan no. matrik");
+    alert("Please enter your name and matric number.");
     return;
   }
 
@@ -878,7 +878,7 @@ const sidebar = document.getElementById("sidebar");
 const content = document.getElementById("content");
 
 /* FOR TABLET */
-if(window.innerWidth <= 1179){
+if(window.innerWidth <= 1440){
 
     sidebar.classList.add("collapsed");
 
@@ -887,7 +887,7 @@ if(window.innerWidth <= 1179){
 content.addEventListener("click", () => {
 
     if(
-        window.innerWidth <= 768 &&
+        window.innerWidth <= 1179 &&
         !sidebar.classList.contains("collapsed")
     ){
 

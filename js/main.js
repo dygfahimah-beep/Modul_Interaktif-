@@ -165,7 +165,7 @@ if (section === "notes") {
 
           <div class="topic-info">
             <h3>Topic 1: Introduction to Sampling Distribution</h3>
-            <p>📑10 Slides</p>
+            <p>📑 10 Slides</p>
           </div>
         </div>
 
@@ -224,7 +224,7 @@ if (section === "notes") {
 
           <div class="topic-info">
             <h3>Topic 3: Law of Large Numbers (LLN)</h3>
-            <p>📑6 Slides</p>
+            <p>📑 6 Slides</p>
           </div>
         </div>
 
@@ -253,7 +253,7 @@ if (section === "notes") {
 
           <div class="topic-info">
             <h3>Topic 4: Relationship Between LLN and Sampling Distribution</h3>
-            <p>📑6 Slides</p>
+            <p>📑 6 Slides</p>
           </div>
         </div>
 
@@ -282,7 +282,7 @@ if (section === "notes") {
 
           <div class="topic-info">
             <h3>Topic 5: Central Limit Theorem (CLT)</h3>
-            <p>📑6 Slides</p>
+            <p>📑 6 Slides</p>
           </div>
         </div>
 
@@ -631,10 +631,9 @@ content.innerHTML = `
       Complete the quizzes below to assess your understanding of sampling distribution and improve your statistics skills.    </p>
   </div>
 
-</div>
-
 <div class="quiz-banner-wrapper">
   <img src="images/quiz-banner.png" class="quiz-banner">
+</div>
 </div>
 
 <div class="quiz-grid">
